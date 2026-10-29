@@ -1,4 +1,3 @@
-# Market-Square
-Mobile Tenant Community Portal.
+# market_square
 
-This application offers tenant the ability to digitally connect with each other for goods, services, or connections.
+A new Flutter project.
