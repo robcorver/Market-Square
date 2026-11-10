@@ -1,5 +1,5 @@
 name: market_square
-description: "A new Flutter project."
+description: "A marketplace for tenants."
 publish_to: 'none'
 version: 0.1.0+1
 
@@ -7,8 +7,10 @@ environment:
   sdk: ^3.13.5
 
 dependencies:
+  flutter_svg: ^2.0.9
   flutter:
     sdk: flutter
+  google_fonts: ^6.2.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo_dark.png
+    - assets/logo_stacked_light.svg
+    - assets/logo_stacked_dark.svg
+    - assets/logo_horizontal_dark.svg
