@@ -32,9 +32,9 @@ class AppColors {
   static const Color warningTextDark = Color.fromARGB(255, 250, 214, 140);
   static const Color dangerTextLight = Color.fromARGB(255, 147, 22, 22);
   static const Color dangerTextDark = Color.fromARGB(255, 255, 172, 166);
-  }
+}
 
-class AppTheme{
+class AppTheme {
   // Color Modes
   /// Light Mode
   static final ColorScheme lightMode = ColorScheme.fromSeed(
@@ -47,24 +47,42 @@ class AppTheme{
 
   // Text Theme
   static final TextTheme font = GoogleFonts.interTextTheme().copyWith(
-    displayLarge: GoogleFonts.poppins(fontWeight: FontWeight(700), fontSize: 32.0),
-    displayMedium: GoogleFonts.poppins(fontWeight: FontWeight(600), fontSize: 24.0),
-    displaySmall: GoogleFonts.poppins(fontWeight: FontWeight(600), fontSize: 20.0),
-    titleLarge: GoogleFonts.poppins(fontWeight: FontWeight(700), fontSize: 32.0),
-    titleMedium: GoogleFonts.poppins(fontWeight: FontWeight(600), fontSize: 24.0),
-    titleSmall: GoogleFonts.poppins(fontWeight: FontWeight(600), fontSize: 20.0),
-    );
+    displayLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight(700),
+      fontSize: 32.0,
+    ),
+    displayMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight(600),
+      fontSize: 24.0,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      fontWeight: FontWeight(600),
+      fontSize: 20.0,
+    ),
+    titleLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight(700),
+      fontSize: 32.0,
+    ),
+    titleMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight(600),
+      fontSize: 24.0,
+    ),
+    titleSmall: GoogleFonts.poppins(
+      fontWeight: FontWeight(600),
+      fontSize: 20.0,
+    ),
+  );
 
   // Base Button Theme --> Default values: Text = Label Large, Fill color = primary
   static final ButtonStyle baseButtonStyle = ButtonStyle(
     shape: WidgetStatePropertyAll(StadiumBorder()), // shape
     minimumSize: WidgetStatePropertyAll(Size(250, 80)),
-    );
+  );
 
   // Base Textfield Theme --> Surface / OnSurface color, Primary for Text
-    static final InputDecorationTheme formInputStyle = InputDecorationTheme(
-      filled: true,
-    );
+  static final InputDecorationTheme formInputStyle = InputDecorationTheme(
+    filled: true,
+  );
 
   // Helper Method to build dynamic theme
   static ThemeData buildTheme(ColorScheme scheme) {
@@ -74,15 +92,9 @@ class AppTheme{
       textTheme: font,
 
       // Button Styling
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: baseButtonStyle,
-        ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: baseButtonStyle
-        ),
-      filledButtonTheme: FilledButtonThemeData(
-        style: baseButtonStyle,
-        ),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: baseButtonStyle),
+      outlinedButtonTheme: OutlinedButtonThemeData(style: baseButtonStyle),
+      filledButtonTheme: FilledButtonThemeData(style: baseButtonStyle),
 
       // Input Form Styling
       inputDecorationTheme: formInputStyle,
@@ -94,7 +106,6 @@ class AppTheme{
         centerTitle: true,
         elevation: 0,
       ),
-
     );
   }
 

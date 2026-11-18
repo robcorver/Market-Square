@@ -1,0 +1,1 @@
+enum FetchOutcome { success, error }

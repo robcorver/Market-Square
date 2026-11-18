@@ -1,5 +1,5 @@
 name: market_square
-description: "A marketplace for tenants."
+description: "A tenant portal for events, goods, and services."
 publish_to: 'none'
 version: 0.1.0+1
 
@@ -10,7 +10,11 @@ dependencies:
   flutter_svg: ^2.0.9
   flutter:
     sdk: flutter
+  flutter_dotenv: ^6.0.2
+  supabase_flutter: ^2.18.3
   google_fonts: ^6.2.0
+  provider: ^6.1.5
+  email_validator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -20,6 +24,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/.env.dev
     - assets/logo_dark.png
     - assets/logo_stacked_light.svg
     - assets/logo_stacked_dark.svg
