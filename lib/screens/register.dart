@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:market_square/models/request_model.dart';
 import 'package:market_square/screens/terms_and_conditions.dart';
 import 'package:market_square/screens/privacy_policy.dart';
+import 'package:market_square/services/real_property_service.dart';
 import 'package:market_square/services/fake_property_service.dart';
 import 'package:market_square/services/property_service.dart';
 import 'package:market_square/services/request_service.dart';
@@ -24,7 +25,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   String? onScreenMessage;
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final PropertyService propertyService = FakePropertyService();
+  final PropertyService propertyService = RealPropertyService();
   List<DropdownMenuEntry<String>> buildingsList = [];
   String? selectedBuildingId;
   List<DropdownMenuEntry<String>> unitList = [];
@@ -137,9 +138,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
-    String? invalidEmailError = (emailController.text.trim().isNotEmpty && 
-    (!EmailValidator.validate(emailController.text.trim())) 
-    ? 'Invalid email address' : null);
+    String? invalidEmailError =
+        (emailController.text.trim().isNotEmpty &&
+            (!EmailValidator.validate(emailController.text.trim()))
+        ? 'Invalid email address'
+        : null);
 
     return Scaffold(
       appBar: AppBar(title: Text('Create Account')),
@@ -166,8 +169,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.error,
                       backgroundColor: Theme.of(context)
-                        .colorScheme
-                        .errorContainer,
+                          .colorScheme
+                          .errorContainer,
                     ),
                     textAlign: TextAlign.center,
                   ),
