@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:market_square/providers/user_provider.dart';
 import 'package:market_square/models/user_model.dart';
+import 'package:market_square/services/auth_service.dart';
+import 'package:market_square/services/real_auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -16,6 +18,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final userProvider = context.watch<UserProvider>();
     final UserModel? signedInUser = userProvider.user;
+    final AuthService authService = RealAuthService();
 
     return Scaffold(
       appBar: AppBar(
@@ -56,6 +59,7 @@ class HomeScreen extends StatelessWidget {
 
             OutlinedButton(
               onPressed: () {
+                authService.signOut();
                 context.read<UserProvider>().clearUser();
                 Navigator.pushNamedAndRemoveUntil(
                   context,

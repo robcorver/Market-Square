@@ -4,7 +4,6 @@ import 'package:market_square/models/request_model.dart';
 import 'package:market_square/screens/terms_and_conditions.dart';
 import 'package:market_square/screens/privacy_policy.dart';
 import 'package:market_square/services/real_property_service.dart';
-import 'package:market_square/services/fake_property_service.dart';
 import 'package:market_square/services/property_service.dart';
 import 'package:market_square/services/request_service.dart';
 import 'package:market_square/services/fake_request_service.dart';

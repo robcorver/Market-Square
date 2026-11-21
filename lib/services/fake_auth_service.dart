@@ -28,4 +28,9 @@ class FakeAuthService implements AuthService {
       );
     }
   }
+
+  Future<void> signOut() async {
+    await Future.delayed(const Duration(seconds: 2));
+    return;
+  }
 }

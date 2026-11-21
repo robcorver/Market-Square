@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 import 'package:market_square/providers/user_provider.dart';
 import 'package:market_square/routes/route.dart';
 import 'package:market_square/services/auth_service.dart';
-import 'package:market_square/services/fake_auth_service.dart';
+import 'package:market_square/services/real_auth_service.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
@@ -18,7 +19,7 @@ class _SignInScreenState extends State<SignInScreen> {
   String? errorMessage;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthService authService = FakeAuthService();
+  final AuthService authService = RealAuthService();
 
   @override
   void dispose() {
@@ -42,6 +43,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String? invalidEmailError =
+        (emailController.text.trim().isNotEmpty &&
+            (!EmailValidator.validate(emailController.text.trim()))
+        ? 'Invalid email address'
+        : null);
     return Scaffold(
       appBar: AppBar(
         title: SizedBox(
@@ -93,6 +99,10 @@ class _SignInScreenState extends State<SignInScreen> {
               onChanged: (value) {
                 setState(() {});
               },
+              decoration: InputDecoration(
+                hintText: 'example@email.com',
+                errorText: invalidEmailError,
+              ),
             ),
 
             Text('Password', style: Theme.of(context).textTheme.bodyLarge),

@@ -11,4 +11,6 @@ class SignInResult {
 
 abstract class AuthService {
   Future<SignInResult> signIn(String emailAddress, String password);
+
+  Future<void> signOut();
 }
